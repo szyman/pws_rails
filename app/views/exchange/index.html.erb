@@ -1,0 +1,23 @@
+<h1>Exchange#index</h1>
+<p>Find me in app/views/exchange/index.html.erb</p>
+
+    <table style="border:1px solid black;">
+      <thead>
+       <tr>
+         <th>Nazwa waluty</th>
+         <th>Kod waluty</th>
+         <th>Kurs kupna</th>
+         <th>Kurs sprzedazy</th>
+       </tr>
+      </thead>
+      <tbody>
+      <% @exchangeArray.each do |exchange| %>
+      <tr>
+        <td><%= exchange["nazwa_waluty"] %></td>
+        <td><%= exchange["kod_waluty"] %></td>
+        <td><%= exchange["kurs_kupna"] %></td>
+        <td><%= exchange["kurs_sprzedazy"] %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
