@@ -1,6 +1,12 @@
 <h1>Exchange#index</h1>
 <p>Find me in app/views/exchange/index.html.erb</p>
 
+    <%= form_for :exchange_date do |f| %>
+      <%= f.label "Date" %>
+      <%= f.text_field :date, :class => "date-field" %>
+      <%= f.submit "Change" %>
+    <% end %>
+
     <table style="border:1px solid black;">
       <thead>
        <tr>

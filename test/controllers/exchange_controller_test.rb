@@ -7,7 +7,7 @@ class ExchangeControllerTest < ActionController::TestCase
   end
 
   test "should get get_data" do
-    get :get_data
+    get :exchange_date
     assert_response :success
   end
 

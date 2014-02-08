@@ -3,6 +3,10 @@ RailsLab3::Application.routes.draw do
   get "exchange/get_data"
   get "exchange/find"
   get "home/index"
+
+  post 'exchange/index' => 'exchange#exchange_date'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
