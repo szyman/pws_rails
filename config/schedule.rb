@@ -3,15 +3,16 @@
 # It's helpful, but not entirely necessary to understand cron before proceeding.
 # http://en.wikipedia.org/wiki/Cron
 
+set :environment, :development
+set :output, {
+    :error => 'log/whenever_error.log',
+    :standard => 'log/whenever.log'
+}
 
 every 2.minutes do
   puts "Scheduler working!!!!!!"
-  #ServerUpdater.new("aaaa").update_all
-   #runner "HomeController.index"
-  puts "Runned!!!!!!"
+   runner "HomeController.test"
 end
-
-set :output, {:error => 'error.log', :standard => 'cron.log'}
 
 # Example:
 #

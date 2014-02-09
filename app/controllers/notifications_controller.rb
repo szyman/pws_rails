@@ -5,6 +5,7 @@ class NotificationsController < ApplicationController
   # GET /notifications.json
   def index
     @notifications = Notification.all
+    NoticeMailer.notice_email.deliver
   end
 
   # GET /notifications/1
