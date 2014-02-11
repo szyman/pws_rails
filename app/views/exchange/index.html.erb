@@ -5,17 +5,17 @@
 
     <%= form_for :search, :method => 'get' do |f| %>
       Search for:
-      <%= f.text_field :text %>
+      <%= f.text_field :text, :value => params[:search] ? params[:search]['text'] : "" %>
       <%= f.submit "Find" %>
       <br/>
       whole word
-      <%= f.check_box :whole_word %>
+      <%= f.check_box :whole_word, :checked => (params[:search] and params[:search]['whole_word'] == "1") ? true : false %>
       <br/>
     <% end %>
 
     <%= form_for :exchange_date do |f| %>
       <%= f.label "Date" %>
-      <%= f.text_field :date, :class => "date-field" %>
+      <%= f.text_field :date, :class => "date-field", :value => Date.strptime(@exchangeDate).strftime("%d-%m-%Y") %>
       <%= f.submit "Change" %>
     <% end %>
 

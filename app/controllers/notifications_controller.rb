@@ -1,11 +1,20 @@
+require 'net/http'
+require 'uri'
+require 'nokogiri'
+
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
+
+  def self.send_notifications
+    response = Net::HTTP.get(URI.parse("http://www.nbp.pl/kursy/xml/LastC.xml"))
+    exchangeDate = responseXML.xpath('//tabela_kursow/data_publikacji').text
+    NoticeMailer.notice_email.deliver
+  end
 
   # GET /notifications
   # GET /notifications.json
   def index
     @notifications = Notification.all
-    NoticeMailer.notice_email.deliver
   end
 
   # GET /notifications/1
